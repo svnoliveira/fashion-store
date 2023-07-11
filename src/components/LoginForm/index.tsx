@@ -5,8 +5,8 @@ export const LoginForm = () => {
             <input type="email"  placeholder="E-MAIL"/>
             <input type="password" placeholder="PASSWORD"/>
             <div>
-                <button>ACCESS</button>
-                <button>REGISTER</button>
+                <button type="submit">ACCESS</button>
+                <button type="button">REGISTER</button>
             </div>
         </form>
     )
