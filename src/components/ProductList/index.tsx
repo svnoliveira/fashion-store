@@ -1,9 +1,9 @@
-import { ProductCard } from "../ProductCard"
+import { ProductCard } from "../Cards/ProductCard"
 
 export const ProductList = () => {
     return(
         <section>
-            <h1>VEJA TAMBÉM</h1>
+            <h1>SEE ALSO</h1>
             <ul>
                 <ProductCard />
                 <ProductCard />

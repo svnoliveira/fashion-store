@@ -7,7 +7,7 @@ export const ProductCard = () => {
                 <span>R$ 490,00 </span>
                 <div>
                     <img src="" alt="icone de carrinho" />
-                    <span>saiba mais</span>
+                    <span>learn more</span>
                 </div>
             </div>
         </li>
