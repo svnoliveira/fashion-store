@@ -2,6 +2,12 @@
 import { create } from 'zustand';
 import { IUserData, IUserState } from './@userTypes';
 import { api } from '@/services/api';
+import { useEffect } from 'react';
+
+useEffect(()=>{
+  const loadUser = useUserStore((store) => store.loadUser);
+  loadUser();
+},[])
 
 export const useUserStore = create<IUserState>()((set) => ({
   loading: false,
