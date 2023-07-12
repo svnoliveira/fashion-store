@@ -1,13 +1,6 @@
 "use client"
 import { create } from "zustand";
 import { api } from "@/services/api";
-import { useEffect } from "react";
-
-
-useEffect(() => {
-  const loadProducts = useProductStore((state) => state.loadProducts);
-  loadProducts();
-},[]);
 
 export const useProductStore = create<IProductState>()((set) => ({
   loading: false,
