@@ -18,6 +18,7 @@ interface IRemoveFromCartProps{
 interface IShoppingState{
     shoppingModalOpen: boolean;
     shoppingList: IShoppingProduct[];
+    setShoppingModalOpen: (boolean: boolean) => void
     addToCart: ({ product }: IAddToCartProps) => void
     removeFromCart: ({ productId }: IRemoveFromCartProps) => void
 }

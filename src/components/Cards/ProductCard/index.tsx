@@ -1,4 +1,5 @@
-import { removeSpaces } from "@/services/utilities";
+import { AddtoShoppingCartButton } from "@/components/Fragments/AddToShoppingCartButton";
+import { removeSpaces, validateImage } from "@/services/utilities";
 import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
@@ -12,16 +13,18 @@ export const ProductCard = ({ product }: IProductCardProps) => {
   return (
     <li className="bg-white">
       <Image
-        src={product.image}
+        src={validateImage(product.image)}
         width={250}
         height={250}
         alt="Picture of clothes"
       />
       <div>
         <h2>{product.name}</h2>
-        <span>{product.price}</span>
+        <span>{Number(product.price).toFixed(2)}</span>
         <div className="bg-black text-white">
-          <MdOutlineAddShoppingCart />
+          <AddtoShoppingCartButton product={product}>
+            <MdOutlineAddShoppingCart />
+          </AddtoShoppingCartButton>
           <Link href={`/product/${removeSpaces(product.name)}`}>
             <span>learn more</span>
           </Link>

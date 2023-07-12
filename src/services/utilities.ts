@@ -7,6 +7,14 @@ export const removeSpaces = (string: string) => {
     return normalizedString;
 }
 
+export const validateImage = (url: string) => {
+    if (url.includes("cloudinary" || "google" || "catbox")){
+        return url;
+    } else {
+        return "/image-not-found.png";
+    }
+}
+
 export const isObjEmpty = (object: {}) => {
     return Object.keys(object).length === 0;
 }
