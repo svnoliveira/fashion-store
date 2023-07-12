@@ -1,14 +1,12 @@
 import { removeSpaces } from "@/services/utilities";
 import { ProductCard } from "../Cards/ProductCard";
-import { getProducts } from "./data";
-
-export const allProducts = await getProducts();
 
 interface IProductListProps{
     productName: string;
+    allProducts: IProduct[];
 }
 
-export const ProductList = ({ productName }:IProductListProps) => {
+export const ProductList = ({ productName, allProducts }:IProductListProps) => {
 
     const products = allProducts.filter((product) => 
     removeSpaces(product.name) !== productName)

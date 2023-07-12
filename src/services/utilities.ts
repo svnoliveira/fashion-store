@@ -2,10 +2,11 @@ export const removeSpaces = (string: string) => {
     if(string === undefined){
         return ""
     }
-    const stringWithoutSpaces = string.replace(/\s+/g, "").toLowerCase()
-    return stringWithoutSpaces
+    const stringWithoutSpaces = string.replace(/\s+/g, "").toLowerCase();
+    const normalizedString = stringWithoutSpaces.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return normalizedString;
 }
 
 export const isObjEmpty = (object: {}) => {
-    return Object.keys(object).length === 0
+    return Object.keys(object).length === 0;
 }
