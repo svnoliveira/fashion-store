@@ -1,5 +1,7 @@
 export const Footer = () => {
     return(
-        <span>All rights reserved - Kenzie Academy Brasil</span>
+        <div className="bg-white">
+            <span className="text-white">All rights reserved - Kenzie Academy Brasil</span>
+        </div>
     )
 }
