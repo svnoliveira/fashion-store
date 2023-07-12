@@ -22,7 +22,7 @@ export const ProductDetail = ({ productName, allProducts }: IProductDetailProps)
                     />
                     <div>
                         <h2>{currentProduct?.name}</h2>
-                        <h1>$ {currentProduct?.price.toFixed(2)}</h1>
+                        <h1>$ {Number(currentProduct.price).toFixed(2)}</h1>
                         <p>{currentProduct?.description}</p>
                         <AddtoShoppingCartButton product={currentProduct}>
                             <MdOutlineAddShoppingCart />

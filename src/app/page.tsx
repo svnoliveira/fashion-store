@@ -1,7 +1,7 @@
 import { HomeBanner } from "@/components/HomeBanner";
 import { ProductList } from "@/components/ProductList";
 import { getProducts } from "./data";
-import { ShoppingCart } from "@/components/ShoppingCart";
+// import { ShoppingCart } from "@/components/ShoppingCart";
 
 const allProducts = await getProducts();
 
@@ -12,7 +12,7 @@ export default function Home() {
       <HomeBanner />
       <ProductList productName="default" allProducts={allProducts}/>
     </main>
-    <ShoppingCart />
+    {/* <ShoppingCart /> */}
     </>
   )
 }
