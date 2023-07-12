@@ -1,3 +1,4 @@
+"use client"
 import { CartCard } from "../Cards/CartCard"
 
 export const ShoppingCart = () => {
