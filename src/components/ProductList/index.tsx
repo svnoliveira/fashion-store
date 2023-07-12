@@ -1,16 +1,24 @@
-import { ProductCard } from "../Cards/ProductCard"
-import { getProducts } from "./data"
+import { removeSpaces } from "@/services/utilities";
+import { ProductCard } from "../Cards/ProductCard";
+import { getProducts } from "./data";
 
-const products = await getProducts()
+export const allProducts = await getProducts();
 
-export const ProductList = () => {
+interface IProductListProps{
+    productName: string;
+}
+
+export const ProductList = ({ productName }:IProductListProps) => {
+
+    const products = allProducts.filter((product) => 
+    removeSpaces(product.name) !== productName)
 
     return(
         <section className="bg-white">
             <h1 className="text-black">SEE ALSO</h1>
             <ul className="text-black">
                 {products.map((product) => 
-                <ProductCard product={product} 
+                <ProductCard product={product}
                 key={product.id}/>)}
             </ul>
         </section>
