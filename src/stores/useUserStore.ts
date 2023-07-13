@@ -3,14 +3,10 @@ import { create } from 'zustand';
 import { IUserData, IUserState } from './@userTypes';
 import { api } from '@/services/api';
 
-// useEffect(()=>{
-//   const loadUser = useUserStore((store) => store.loadUser);
-//   loadUser();
-// },[])
-
 export const useUserStore = create<IUserState>()((set) => ({
   loading: false,
   error: "",
+  message: "",
   userData: null,
   
   logoutUser: () => {
@@ -26,12 +22,14 @@ export const useUserStore = create<IUserState>()((set) => ({
         password: password,
       });
       localStorage.setItem("@FS: userData", JSON.stringify(data));
-      set({ userData: data, error: "" });
+      set({ userData: data});
+      set({ message: "Logged in successfuly!"});
     } catch (error) {
       console.log(error);
       set({ error: "Login atempt Failed" });
     } finally {
       set({ loading: false });
+      setTimeout(()=> { set({ message: "", error: "" })},2000)
     };
   },
 
@@ -50,12 +48,14 @@ export const useUserStore = create<IUserState>()((set) => ({
         password: password,
         name: name,
       });
+      set({ message: "Account registered!"});
       return true;
     } catch (error) {
       console.log(error);
       set({ error: "Failed to register new account"});
     } finally {
       set({loading: false});
+      setTimeout(()=> { set({ message: "", error: "" })},2000)
     };
   }
 }));

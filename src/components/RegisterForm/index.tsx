@@ -8,7 +8,7 @@ import { useUserStore } from "@/stores/useUserStore"
 
 export const RegisterForm = () => {
 
-  const registerUser = useUserStore((store) => store.registerUser)
+  const { registerUser, loading } = useUserStore((store) => store);
 
   const {
     register,
@@ -18,9 +18,14 @@ export const RegisterForm = () => {
     resolver: zodResolver(registerSchema),
   });
 
-  const parseRegisterData = ({ name, email, password }: TRegisterValues) => {
-    registerUser({ email, password, name })
-  }
+  const parseRegisterData = async ({ name, email, password }: TRegisterValues) => {
+    const register = await registerUser({ email, password, name })
+    if (register){
+      console.log("success");
+    } else {
+      console.log("failed");
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit((formData) => parseRegisterData(formData))}>
@@ -32,17 +37,18 @@ export const RegisterForm = () => {
       </Link>
       <h1>REGISTER</h1>
       <span>Welcome, Administrator!</span>
-      <div>
+      {loading ? <span>LOADING</span>
+      :<div>
         <input type="text" placeholder="NAME" {...register('name')} />
         {errors.name && <p>{errors.name.message}</p>}
         <input type="email" placeholder="E-MAIL" {...register('email')} />
         {errors.email && <p>{errors.email.message}</p>}
-        <input type="password" placeholder="PASSWORD" {...register('password')} />
+        <input type="text" placeholder="PASSWORD" {...register('password')} />
         {errors.password && <p>{errors.password.message}</p>}
         <input type="password" placeholder="CONFIRM PASSWORD" {...register('confirmPassword')} />
         {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
         <button type="submit">REGISTER</button>
-      </div>
+      </div>}
     </form>
   )
-}
+};

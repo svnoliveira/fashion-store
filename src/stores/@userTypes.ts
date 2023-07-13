@@ -23,6 +23,7 @@ export interface IRegisterData{
 export interface IUserState {
     loading: boolean;
     error: string;
+    message: string;
     userData: null | IUserData;
     logoutUser: () => void;
     loginUser: ({ email, password }:ILoginData) => Promise<void>;
