@@ -1,7 +1,8 @@
 import { getProducts } from "@/app/data";
+import { ShoppingCartButton } from "@/components/Fragments/ShoppingCartButton";
+import { Header } from "@/components/Header";
 import { ProductDetail } from "@/components/ProductDetail";
 import { ProductList } from "@/components/ProductList";
-// import { ShoppingCart } from "@/components/ShoppingCart";
 
 interface IProductParams{
   params: {
@@ -16,11 +17,13 @@ export default function Product({ params }:IProductParams) {
 
   return (
     <>
+    <Header>
+      <ShoppingCartButton />
+    </Header>
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <ProductDetail productName={productName} allProducts={allProducts}/>
       <ProductList productName={productName} allProducts={allProducts}/>
     </main>
-    {/* <ShoppingCart /> */}
     </>
   )
 }

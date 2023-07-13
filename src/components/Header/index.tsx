@@ -1,7 +1,10 @@
 import Image from "next/image"
-import { ShoppingCartButton } from "../Fragments/ShoppingCartButton"
 
-export const Header = () => {
+interface IHeaderProps{
+    children: React.ReactNode;
+}
+
+export const Header = ({children} : IHeaderProps) => {
     return (
         <header className="bg-white">
             <Image
@@ -10,7 +13,7 @@ export const Header = () => {
                 height={500}
                 alt="Fashion store logo"
             />
-            <ShoppingCartButton />
+            {children}
         </header>
     )
 }
