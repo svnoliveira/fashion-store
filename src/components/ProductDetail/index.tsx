@@ -1,20 +1,36 @@
-export const ProductDetail = () => {
+import { removeSpaces, validateImage } from "@/services/utilities";
+import Image from "next/image";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { AddtoShoppingCartButton } from "../Fragments/AddToShoppingCartButton";
+
+interface IProductDetailProps {
+    productName: string;
+    allProducts: IProduct[];
+}
+
+export const ProductDetail = ({ productName, allProducts }: IProductDetailProps) => {
+    const currentProduct = allProducts.find((product) => removeSpaces(product.name) === productName)
     return (
         <section>
-            <img src="" alt="Product image" />
-            <div>
-                <h2>Blazer Branco Elegante</h2>
-                <h1>$ 490,00 </h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Proin massa metus, tempus nec ex ac, condimentum convallis diam.
-                    Donec at nisi lorem. Aliquam non dolor bibendum, venenatis ante ac,
-                    lobortis justo. Vestibulum nec pretium mi, eu consequat dolor.
-                </p>
-                <button>
-                    <img src="" alt="cart-icon" />
-                    <span>ADD TO SHOPPING CART</span>
-                </button>
-            </div>
+            {currentProduct ?
+                <>
+                    <Image
+                        src={validateImage(currentProduct.image)}
+                        height={500}
+                        width={500}
+                        alt="Product image"
+                    />
+                    <div>
+                        <h2>{currentProduct?.name}</h2>
+                        <h1>$ {Number(currentProduct.price).toFixed(2)}</h1>
+                        <p>{currentProduct?.description}</p>
+                        <AddtoShoppingCartButton product={currentProduct}>
+                            <MdOutlineAddShoppingCart />
+                            <span>ADD TO SHOPPING CART</span>
+                        </AddtoShoppingCartButton>
+                    </div>
+                </> :
+                <p>Product not found</p>}
         </section>
     )
 }
