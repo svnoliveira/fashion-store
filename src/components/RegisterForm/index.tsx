@@ -5,11 +5,12 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { IoMdArrowBack } from "react-icons/io"
 import { TRegisterValues, registerSchema } from "./schema"
 import { useUserStore } from "@/stores/useUserStore"
+import { useRouter } from "next/navigation"
 
 export const RegisterForm = () => {
 
   const { registerUser, loading } = useUserStore((store) => store);
-
+  const { push } = useRouter();
   const {
     register,
     handleSubmit,
@@ -19,12 +20,7 @@ export const RegisterForm = () => {
   });
 
   const parseRegisterData = async ({ name, email, password }: TRegisterValues) => {
-    const register = await registerUser({ email, password, name })
-    if (register){
-      console.log("success");
-    } else {
-      console.log("failed");
-    }
+    await registerUser({ email, password, name }) && push("login");
   };
 
   return (
@@ -39,13 +35,13 @@ export const RegisterForm = () => {
       <span>Welcome, Administrator!</span>
       {loading ? <span>LOADING</span>
       :<div>
-        <input type="text" placeholder="NAME" {...register('name')} />
+        <input type="text" placeholder="NAME" {...register("name")} />
         {errors.name && <p>{errors.name.message}</p>}
-        <input type="email" placeholder="E-MAIL" {...register('email')} />
+        <input type="email" placeholder="E-MAIL" {...register("email")} />
         {errors.email && <p>{errors.email.message}</p>}
-        <input type="text" placeholder="PASSWORD" {...register('password')} />
+        <input type="text" placeholder="PASSWORD" {...register("password")} />
         {errors.password && <p>{errors.password.message}</p>}
-        <input type="password" placeholder="CONFIRM PASSWORD" {...register('confirmPassword')} />
+        <input type="password" placeholder="CONFIRM PASSWORD" {...register("confirmPassword")} />
         {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
         <button type="submit">REGISTER</button>
       </div>}

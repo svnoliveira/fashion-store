@@ -24,6 +24,7 @@ export const useUserStore = create<IUserState>()((set) => ({
       localStorage.setItem("@FS: userData", JSON.stringify(data));
       set({ userData: data});
       set({ message: "Logged in successfuly!"});
+      return true
     } catch (error) {
       console.log(error);
       set({ error: "Login atempt Failed" });
@@ -33,11 +34,15 @@ export const useUserStore = create<IUserState>()((set) => ({
     };
   },
 
-  loadUser: () => {
+  loadUser: ({push}) => {
     const savedUser = localStorage.getItem("@FS: userData");
     if (savedUser) {
       set({ userData: JSON.parse(savedUser) });
-    };
+      console.log("mounted and logged")
+      push("/admin/home");
+    } else {
+      push("/login")
+    }
   },
 
   registerUser: async ({ email, password, name }) => {

@@ -23,8 +23,8 @@ export default function RootLayout({
         {children}
         <Footer />
         <ShoppingCart />
+        <Toast />
       </body>
-      <Toast />
     </html>
   )
 }
