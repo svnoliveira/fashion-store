@@ -12,9 +12,9 @@ export const ProductList = ({ productName, allProducts }:IProductListProps) => {
     removeSpaces(product.name) !== productName)
 
     return(
-        <section className="bg-white">
-            <h1 className="text-black">SEE ALSO</h1>
-            <ul className="text-black">
+        <section>
+            <h1>SEE ALSO</h1>
+            <ul>
                 {products.map((product) => 
                 <ProductCard product={product}
                 key={product.id}/>)}

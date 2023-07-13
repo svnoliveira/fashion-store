@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const API_BASE_URL = "https://fashion-store-api.onrender.com";
+export const API_BASE_URL = "https://fashion-store-api-svnoliveira.onrender.com";
 
 export const api = axios.create({
     baseURL: API_BASE_URL,
