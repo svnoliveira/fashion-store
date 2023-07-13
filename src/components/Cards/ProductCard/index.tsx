@@ -11,7 +11,7 @@ interface IProductCardProps {
 export const ProductCard = ({ product }: IProductCardProps) => {
 
   return (
-    <li className="bg-white">
+    <li>
       <Image
         src={validateImage(product.image)}
         width={250}
@@ -21,7 +21,7 @@ export const ProductCard = ({ product }: IProductCardProps) => {
       <div>
         <h2>{product.name}</h2>
         <span>{Number(product.price).toFixed(2)}</span>
-        <div className="bg-black text-white">
+        <div>
           <AddtoShoppingCartButton product={product}>
             <MdOutlineAddShoppingCart />
           </AddtoShoppingCartButton>
