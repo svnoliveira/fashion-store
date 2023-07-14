@@ -27,6 +27,8 @@ interface IProductState{
     message: string;
     products: IProduct[];
     adminModalOpen: boolean;
+    editingProduct: number;
+    setEditingProduct: (productId: number) => void
     setAdminModalOpen: (boolean: boolean) => void;
     loadProducts: () => Promise<IProduct[] | null>;
     addProduct: ({ product, token }: IAddProductProps) => Promise<IProduct | null>;
