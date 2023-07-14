@@ -25,6 +25,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       return null;
     } finally {
       set({loading: false});
+      setTimeout(()=> { set({ message: "", error: "" })},2000)
     };
   },
 

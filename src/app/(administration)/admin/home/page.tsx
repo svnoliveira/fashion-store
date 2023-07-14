@@ -9,7 +9,6 @@ export default function AdminHome() {
 
   useEffect(() => {
     loadUser()
-    console.log("mounted and logged from home")
   }, [])
 
   return (

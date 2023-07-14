@@ -9,19 +9,23 @@ import { useProductStore } from "@/stores/useProductStore";
 export default function AdminProducts() {
 
   const loadUser = useUserStore((store) => store.loadUser);
-  const loadProducts = useProductStore((store) => store.loadProducts);
+  const user = useUserStore((store) => store.userData?.user)
+  const { loadProducts, adminModalOpen } = useProductStore((store) => store);
 
   useEffect(() => {
-    loadUser()
-    console.log("mounted and logged from products")
-    loadProducts()
+
+    const startAdminProducts = async () => {
+      loadUser()
+      await loadProducts()
+    }
+    startAdminProducts()
   }, [])
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <AdminNav />
-      <AdminProductList />
-      <AdminModal />
+      { user && <AdminProductList />}
+      {adminModalOpen && <AdminModal />}
     </main>
   )
 }
