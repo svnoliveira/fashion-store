@@ -1,4 +1,5 @@
 "use client"
+import { IProduct } from "@/stores/@productTypes";
 import { useProductStore } from "@/stores/useProductStore";
 import { useUserStore } from "@/stores/useUserStore";
 import Image from "next/image";

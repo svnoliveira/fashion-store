@@ -1,6 +1,7 @@
 "use client"
 import { create } from "zustand";
 import { api } from "@/services/api";
+import { IProduct, IProductState} from "@/stores/@productTypes"
 
 export const useProductStore = create<IProductState>()((set) => ({
   loading: false,
@@ -53,7 +54,7 @@ export const useProductStore = create<IProductState>()((set) => ({
   editProduct: async ({product, token}) => {
     try {
       set({loading: true});
-      const { data } = await api.post<IProduct>(`/products/${product.id}`, product, {
+      const { data } = await api.put<IProduct>(`/products/${product.id}`, product, {
         headers: {
           Authorization: `Bearer ${token}`
         }

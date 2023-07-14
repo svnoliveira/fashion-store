@@ -1,4 +1,4 @@
-interface IProduct{
+export interface IProduct{
     id: number;
     name: string;
     price: number;
@@ -6,22 +6,29 @@ interface IProduct{
     image: string;
 }
 
-interface IAddProductProps{
+interface IProductFromForm{
+    name: string;
+    price: number;
+    description: string;
+    image: string;
+}
+
+export interface IAddProductProps{
+    product: IProductFromForm;
+    token: string;
+}
+
+export interface IEditProductProps{
     product: IProduct;
     token: string;
 }
 
-interface IEditProductProps{
-    product: IProduct;
-    token: string;
-}
-
-interface IDeleteProductProps{
+export interface IDeleteProductProps{
     productId: number;
     token: string;
 }
 
-interface IProductState{
+export interface IProductState{
     loading: boolean;
     error: string;
     message: string;

@@ -5,6 +5,6 @@ module.exports = nextConfig
 module.exports = {
     reactStrictMode: true, 
     images: {
-        domains: ['res.cloudinary.com'],
+        domains: ['res.cloudinary.com', 'files.catbox.moe', 'dive.google.com'],
     },
 }
