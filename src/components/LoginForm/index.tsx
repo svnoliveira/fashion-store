@@ -19,7 +19,6 @@ export const LoginForm = () => {
   });
 
   const parseLoginData = async ({ email, password }: TLoginValues) => {
-    console.log("login atempt")
     await loginUser({ email, password }) && push("/admin/home");
   };
 

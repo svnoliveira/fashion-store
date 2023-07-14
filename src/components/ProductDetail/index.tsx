@@ -2,6 +2,7 @@ import { removeSpaces, validateImage } from "@/services/utilities";
 import Image from "next/image";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { AddtoShoppingCartButton } from "../Fragments/AddToShoppingCartButton";
+import { IProduct } from "@/stores/@productTypes";
 
 interface IProductDetailProps {
     productName: string;
@@ -17,7 +18,7 @@ export const ProductDetail = ({ productName, allProducts }: IProductDetailProps)
                     <Image
                         src={validateImage(currentProduct.image)}
                         height={500}
-                        width={500}
+                        width={undefined}
                         alt="Product image"
                     />
                     <div>

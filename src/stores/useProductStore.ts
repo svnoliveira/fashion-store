@@ -1,11 +1,18 @@
 "use client"
 import { create } from "zustand";
 import { api } from "@/services/api";
+import { IProduct, IProductState} from "@/stores/@productTypes"
 
 export const useProductStore = create<IProductState>()((set) => ({
   loading: false,
   error: "",
+  message: "",
   products: [],
+  adminModalOpen: false,
+  editingProduct: 0,
+  setEditingProduct: (productId) => {set(() => ({editingProduct: productId}))},
+  
+  setAdminModalOpen: (boolean) => {set(() => ({ adminModalOpen: boolean}))},
 
   loadProducts: async () => {
     try {
@@ -19,6 +26,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       return null;
     } finally {
       set({loading: false});
+      setTimeout(()=> { set({ message: "", error: "" })},2000)
     };
   },
 
@@ -31,6 +39,7 @@ export const useProductStore = create<IProductState>()((set) => ({
         }
       });
       set((state) => ({products: [...state.products, data]}));
+      set({message: "Product added to the store!"})
       return data;
     } catch (error) {
       console.log(error);
@@ -38,13 +47,14 @@ export const useProductStore = create<IProductState>()((set) => ({
       return null;
     } finally {
       set({loading: false});
+      setTimeout(()=> { set({ message: "", error: "" })},2000)
     };
   },
 
   editProduct: async ({product, token}) => {
     try {
       set({loading: true});
-      const { data } = await api.post<IProduct>(`/products/${product.id}`, product, {
+      const { data } = await api.put<IProduct>(`/products/${product.id}`, product, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -62,6 +72,8 @@ export const useProductStore = create<IProductState>()((set) => ({
           return oldProduct;
         };
       })}));
+      set({editingProduct: 0})
+      set({message: "Product edited!"})
       return data;
     } catch (error) {
       console.log(error);
@@ -69,6 +81,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       return null;
     } finally {
       set({loading: false});
+      setTimeout(()=> { set({ message: "", error: "" })},2000)
     };
   },
 
@@ -83,6 +96,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       set((state) => 
       ({products: state.products.filter(oldProduct => 
       oldProduct.id !== productId)}));
+      set({message: "Product Deleted!"})
       return true;
     } catch (error) {
       console.log(error);
@@ -90,6 +104,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       return null;
     } finally {
       set({loading: false});
+      setTimeout(()=> { set({ message: "", error: "" })},2000)
     };
   }
 }));

@@ -34,14 +34,10 @@ export const useUserStore = create<IUserState>()((set) => ({
     };
   },
 
-  loadUser: ({push}) => {
+  loadUser: () => {
     const savedUser = localStorage.getItem("@FS: userData");
     if (savedUser) {
       set({ userData: JSON.parse(savedUser) });
-      console.log("mounted and logged")
-      push("/admin/home");
-    } else {
-      push("/login")
     }
   },
 
