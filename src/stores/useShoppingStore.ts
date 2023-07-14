@@ -4,7 +4,7 @@ export const useShoppingStore = create<IShoppingState>()((set) => ({
     shoppingModalOpen: false,
     shoppingList: [],
 
-    setShoppingModalOpen: (boolean:boolean) => {set(() => ({ shoppingModalOpen: boolean}))},
+    setShoppingModalOpen: (boolean) => {set(() => ({ shoppingModalOpen: boolean}))},
 
     addToCart: ({ product }) => {
         set((state) => ({

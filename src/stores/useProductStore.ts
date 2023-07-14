@@ -5,7 +5,11 @@ import { api } from "@/services/api";
 export const useProductStore = create<IProductState>()((set) => ({
   loading: false,
   error: "",
+  message: "",
   products: [],
+  adminModalOpen: false,
+  
+  setAdminModalOpen: (boolean) => {set(() => ({ adminModalOpen: boolean}))},
 
   loadProducts: async () => {
     try {

@@ -1,5 +1,3 @@
-import { NavigateOptions } from "next/dist/shared/lib/app-router-context";
-
 export interface IUser{
     email: string;
     name: string;
@@ -22,10 +20,6 @@ export interface IRegisterData{
     name: string;
 }
 
-export interface ILoadUserProps{
-    push: (href: string, options?: NavigateOptions | undefined) => void
-}
-
 export interface IUserState {
     loading: boolean;
     error: string;
@@ -33,6 +27,6 @@ export interface IUserState {
     userData: null | IUserData;
     logoutUser: () => void;
     loginUser: ({ email, password }:ILoginData) => Promise<true | undefined>;
-    loadUser: ({push}:ILoadUserProps) => void;
+    loadUser: () => void;
     registerUser: ({ email, password, name }: IRegisterData) => Promise<true | undefined>;
 }

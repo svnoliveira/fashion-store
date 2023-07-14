@@ -24,7 +24,10 @@ interface IDeleteProductProps{
 interface IProductState{
     loading: boolean;
     error: string;
+    message: string;
     products: IProduct[];
+    adminModalOpen: boolean;
+    setAdminModalOpen: (boolean: boolean) => void;
     loadProducts: () => Promise<IProduct[] | null>;
     addProduct: ({ product, token }: IAddProductProps) => Promise<IProduct | null>;
     editProduct: ({ product, token }: IEditProductProps) => Promise<IProduct | null>
