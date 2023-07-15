@@ -9,12 +9,13 @@ import { useProductStore } from "@/stores/useProductStore";
 export default function AdminProducts() {
 
   const user = useUserStore((store) => store.userData?.user)
-  const { loadProducts, adminModalOpen } = useProductStore((store) => store);
+  const adminModalOpen = useProductStore((store) => store.adminModalOpen);
   
   useEffect(() => {
     
     const startAdminProducts = async () => {
       const loadUser = useUserStore.getState().loadUser;
+      const loadProducts = useProductStore.getState().loadProducts;
       loadUser()
       await loadProducts()
     }
