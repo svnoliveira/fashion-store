@@ -1,6 +1,7 @@
 "use client"
 
 import { validateImage } from "@/services/utilities";
+import { IShoppingProduct } from "@/stores/@shoppingTypes";
 import { useShoppingStore } from "@/stores/useShoppingStore";
 import Image from "next/image";
 import { MouseEvent } from "react";

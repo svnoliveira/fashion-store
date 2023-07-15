@@ -1,5 +1,6 @@
 import { AddtoShoppingCartButton } from "@/components/Fragments/AddToShoppingCartButton";
 import { removeSpaces, validateImage } from "@/services/utilities";
+import { IProduct } from "@/stores/@productTypes";
 import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineAddShoppingCart } from "react-icons/md";

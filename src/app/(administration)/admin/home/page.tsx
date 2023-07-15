@@ -5,9 +5,9 @@ import { useEffect } from "react";
 
 export default function AdminHome() {
 
-  const loadUser = useUserStore((store) => store.loadUser);
-
+  
   useEffect(() => {
+    const loadUser = useUserStore.getState().loadUser;
     loadUser()
   }, [])
 

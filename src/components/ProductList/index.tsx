@@ -1,5 +1,6 @@
 import { removeSpaces } from "@/services/utilities";
 import { ProductCard } from "../Cards/ProductCard";
+import { IProduct } from "@/stores/@productTypes";
 
 interface IProductListProps{
     productName: string;

@@ -1,4 +1,5 @@
 import { API_BASE_URL } from "@/services/api"
+import { IProduct } from "@/stores/@productTypes";
 
 export async function getProducts(): Promise<IProduct[] | []>{
     try {

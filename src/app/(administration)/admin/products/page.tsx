@@ -8,13 +8,13 @@ import { useProductStore } from "@/stores/useProductStore";
 
 export default function AdminProducts() {
 
-  const loadUser = useUserStore((store) => store.loadUser);
   const user = useUserStore((store) => store.userData?.user)
   const { loadProducts, adminModalOpen } = useProductStore((store) => store);
-
+  
   useEffect(() => {
-
+    
     const startAdminProducts = async () => {
+      const loadUser = useUserStore.getState().loadUser;
       loadUser()
       await loadProducts()
     }

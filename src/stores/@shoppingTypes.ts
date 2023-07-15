@@ -1,4 +1,6 @@
-interface IShoppingProduct{
+import { IProduct } from "./@productTypes";
+
+export interface IShoppingProduct{
     id: number;
     name: string;
     price: number;
@@ -7,15 +9,15 @@ interface IShoppingProduct{
     quantity: number;
 }
 
-interface IAddToCartProps{
+export interface IAddToCartProps{
     product:IProduct;
 }
 
-interface IRemoveFromCartProps{
+export interface IRemoveFromCartProps{
     productId:number;
 }
 
-interface IShoppingState{
+export interface IShoppingState{
     shoppingModalOpen: boolean;
     shoppingList: IShoppingProduct[];
     setShoppingModalOpen: (boolean: boolean) => void

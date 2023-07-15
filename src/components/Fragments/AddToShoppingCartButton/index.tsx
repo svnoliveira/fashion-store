@@ -1,5 +1,6 @@
 "use client"
 
+import { IProduct } from "@/stores/@productTypes";
 import { useShoppingStore } from "@/stores/useShoppingStore";
 import { MouseEvent } from "react";
 

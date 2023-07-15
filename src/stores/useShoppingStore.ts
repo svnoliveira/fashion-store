@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { IShoppingState } from "./@shoppingTypes";
 
 export const useShoppingStore = create<IShoppingState>()((set) => ({
     shoppingModalOpen: false,
