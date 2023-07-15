@@ -19,7 +19,8 @@ export const AddtoShoppingCartButton = ({children, product}:IAddtoShoppingCartBu
     }
 
     return(
-        <button onClick={(event) => handleAddClick(event, product)}>
+        <button className="w-[60px] h-[60px] bg-black text-white flex items-center justify-center hover:opacity-50"
+        onClick={(event) => handleAddClick(event, product)}>
             {children}
         </button>
     )

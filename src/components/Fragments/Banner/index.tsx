@@ -4,6 +4,7 @@ export const Banner = () => {
     return (
         <div>
             <Image 
+            className="rounded-[40px]"
             src="/main-banner.png"
             width={945}
             height={691}
