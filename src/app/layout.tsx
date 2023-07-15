@@ -1,11 +1,12 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Oswald } from 'next/font/google'
 import { Footer } from '@/components/Footer'
 import { ShoppingCart } from '@/components/ShoppingCart'
 import { Toast } from '@/components/Fragments/Toast'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
+const oswald = Oswald({subsets: ['latin']})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={oswald.className}>
         {children}
         <Footer />
         <ShoppingCart />

@@ -8,6 +8,7 @@ export const Banner = () => {
             width={945}
             height={691}
             alt="Banner image, women wearing stylish outfits"
+            priority={true}
             />
         </div>
     )

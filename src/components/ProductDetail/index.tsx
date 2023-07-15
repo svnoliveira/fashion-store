@@ -20,6 +20,7 @@ export const ProductDetail = ({ productName, allProducts }: IProductDetailProps)
                         height={500}
                         width={undefined}
                         alt="Product image"
+                        priority={true}
                     />
                     <div>
                         <h2>{currentProduct?.name}</h2>
