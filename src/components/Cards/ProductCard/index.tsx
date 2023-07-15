@@ -1,5 +1,5 @@
 import { AddtoShoppingCartButton } from "@/components/Fragments/AddToShoppingCartButton";
-import { removeSpaces, validateImage } from "@/services/utilities";
+import { removeSpaces } from "@/services/utilities";
 import { IProduct } from "@/stores/@productTypes";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +14,7 @@ export const ProductCard = ({ product }: IProductCardProps) => {
   return (
     <li>
       <Image
-        src={validateImage(product.image)}
+        src={product.image}
         width={250}
         height={250}
         alt="Picture of clothes"

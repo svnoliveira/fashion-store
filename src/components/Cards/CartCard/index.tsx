@@ -1,6 +1,5 @@
 "use client"
 
-import { validateImage } from "@/services/utilities";
 import { IShoppingProduct } from "@/stores/@shoppingTypes";
 import { useShoppingStore } from "@/stores/useShoppingStore";
 import Image from "next/image";
@@ -23,7 +22,7 @@ export const CartCard = ({product}:ICartCardProps) => {
     return (
         <li>
             <Image 
-            src={validateImage(product.image)}
+            src={product.image}
             width={150}
             height={150}
             alt="Miniature of the product"

@@ -1,4 +1,4 @@
-import { removeSpaces, validateImage } from "@/services/utilities";
+import { removeSpaces } from "@/services/utilities";
 import Image from "next/image";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { AddtoShoppingCartButton } from "../Fragments/AddToShoppingCartButton";
@@ -16,7 +16,7 @@ export const ProductDetail = ({ productName, allProducts }: IProductDetailProps)
             {currentProduct ?
                 <>
                     <Image
-                        src={validateImage(currentProduct.image)}
+                        src={currentProduct.image}
                         height={500}
                         width={undefined}
                         alt="Product image"
