@@ -6,8 +6,12 @@ interface IHeaderProps {
 }
 
 export const Header = ({ children }: IHeaderProps) => {
+
+  const headerStyle = children ? "bg-white fixed top-0 z-30 w-screen" : 
+  "bg-white w-screen flex justify-center"
+
   return (
-    <header className="bg-white fixed top-0 z-30 w-screen">
+    <header className={headerStyle}>
       <div className="max-w-[1448px] m-auto flex justify-between items-center min-h-[29px] md:min-h-[48px] px-3">
         <Link href={"/"}>
           <Image className="h-auto"

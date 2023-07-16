@@ -12,7 +12,7 @@ export default function AdminHome() {
   }, [])
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex flex-col min-h-[65vh] justify-between max-w-[1448px] m-auto px-3">
       <AdminNav />
     </main>
   )
