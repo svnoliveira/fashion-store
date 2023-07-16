@@ -18,7 +18,7 @@ export const ExtendedAddButton = ({currentProduct}:IExtendedAddButtonProps) => {
         addToCart({product})
     }
     return (
-        <div className="flex bg-black text-white items-center w-fit pr-4 hover:opacity-50">
+        <div className="flex bg-black text-white items-center w-fit px-4 py-2 hover:opacity-50">
             <AddtoShoppingCartButton product={currentProduct}>
                 <MdOutlineAddShoppingCart size={31} />
             </AddtoShoppingCartButton>
