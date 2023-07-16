@@ -12,22 +12,23 @@ interface IProductCardProps {
 export const ProductCard = ({ product }: IProductCardProps) => {
 
   return (
-    <li>
+    <li className="min-w-[271px] flex flex-col h-[592px]">
       <Image
         src={product.image}
-        width={250}
-        height={250}
+        width={332}
+        height={383}
         alt="Picture of clothes"
+        className="rounded-[20px]"
       />
-      <div>
-        <h2>{product.name}</h2>
-        <span>{Number(product.price).toFixed(2)}</span>
-        <div>
+      <div className="h-full flex flex-col mt-16 justify-between">
+        <h2 className="text-title4">{product.name}</h2>
+        <span className="text-small-price">$ {Number(product.price).toFixed(2)}</span>
+        <div className="flex gap-9 items-center">
           <AddtoShoppingCartButton product={product}>
-            <MdOutlineAddShoppingCart />
+            <MdOutlineAddShoppingCart size={36}/>
           </AddtoShoppingCartButton>
-          <Link href={`/product/${removeSpaces(product.name)}`}>
-            <span>learn more</span>
+          <Link href={`/product/${removeSpaces(product.name)}`} className="flex justify-center">
+            <span className="text-paragraph tracking-widest hover:underline decoration-solid decoration-black decoration-2">learn more</span>
           </Link>
         </div>
       </div>

@@ -12,7 +12,7 @@ export default function Home() {
     <Header>
       <ShoppingCartButton />
     </Header>
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex flex-col justify-between max-w-[1448px] m-auto px-3">
       <HomeBanner />
       <ProductList productName="default" allProducts={allProducts}/>
     </main>

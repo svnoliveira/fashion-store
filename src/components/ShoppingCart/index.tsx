@@ -1,7 +1,7 @@
 "use client"
 import { useShoppingStore } from "@/stores/useShoppingStore"
 import { CartCard } from "../Cards/CartCard"
-
+import { TfiClose } from "react-icons/tfi"
 
 export const ShoppingCart = () => {
 
@@ -16,19 +16,21 @@ export const ShoppingCart = () => {
       {shoppingModalOpen &&
         <section onClick={() => setShoppingModalOpen(false)} className="fixed top-0 h-screen w-screen bg-white/40">
           <div onClick={(event) => handlePropagation(event)} className="relative max-w-[1728px] m-auto">
-            <div className="absolute top-0 right-0 bg-white">
+            <div className="flex flex-col justify-between absolute top-9 md:top-0 m-auto right-[4%] md:right-0 w-11/12 md:w-[512px] h-[80vh] px-3 md:px-10 py-8 bg-white shadow-cart">
               <div>
-                <h1>SHOPPING CART</h1>
-                <button type="button" onClick={() => setShoppingModalOpen(false)}>X</button>
+                <div className="flex justify-between">
+                  <h1 className="text-title3">SHOPPING CART</h1>
+                  <button className="absolute top-0 md:top-[25px] right-0 md:right-[15px]" type="button" onClick={() => setShoppingModalOpen(false)} ><TfiClose size={27}/></button>
+                </div>
+                <ul className="flex flex-col gap-10 overflow-y-auto mt-10">
+                  {shoppingList.length > 0 ? shoppingList.map((product) =>
+                    <CartCard key={product.id} product={product} />)
+                    :
+                    <span className="text-small-price text-center">EMPTY</span>}
+                </ul>
               </div>
-              <ul>
-                {shoppingList.length > 0 ? shoppingList.map((product) =>
-                  <CartCard key={product.id} product={product} />)
-                  :
-                  <span>EMPTY</span>}
-              </ul>
               <div>
-                <span>TOTAL $ {(shoppingList.reduce((prev, current) => prev + (current.price * current.quantity), 0)).toFixed(2)}</span>
+                <span className="text-small-price">TOTAL</span><span className="text-bread-bold"> $ {(shoppingList.reduce((prev, current) => prev + (current.price * current.quantity), 0)).toFixed(2)}</span>
               </div>
             </div>
           </div>
