@@ -31,10 +31,10 @@ export const LoginForm = () => {
         : <>
           <input className="bg-grey h-20 p-6 text-paragraph"
           type="email" placeholder="E-MAIL" {...register("email")} />
-          {errors.email && <p>{errors.email.message}</p>}
+          {errors.email && <p className="text-red">{errors.email.message}</p>}
           <input className="bg-grey h-20 p-6 text-paragraph"
           type="password" placeholder="PASSWORD" {...register("password")} />
-          {errors.password && <p>{errors.password.message}</p>}
+          {errors.password && <p className="text-red">{errors.password.message}</p>}
           <div className="flex gap-4 justify-around lg:justify-start">
             <button type="submit"
             className="flex bg-black text-white items-center w-fit px-4 py-3 hover:opacity-50 text-small-price tracking-[0.2rem] border-2 border-solid border-black"

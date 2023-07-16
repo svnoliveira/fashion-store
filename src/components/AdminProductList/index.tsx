@@ -1,14 +1,12 @@
 "use client"
 import { useProductStore } from "@/stores/useProductStore"
 import { AdminProductCard } from "../Cards/AdminProductCard"
-// import { useUserStore } from "@/stores/useUserStore"
 
 export const AdminProductList = () => {
-  // const user = useUserStore((store) => store.userData?.user);
   const { products, loading } = useProductStore((store) => store);
   return (
-
-    <ul>
+    
+    <ul className="flex flex-wrap justify-between gap-6">
       {loading ? <span>LOADING</span> :
         products.map(product => {
           return (

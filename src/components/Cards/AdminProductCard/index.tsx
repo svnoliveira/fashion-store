@@ -21,21 +21,22 @@ export const AdminProductCard = ({ product }: IAdminProductCardProps) => {
   }
 
   return (
-    <li>
+    <li className="flex gap-7 items-center w-full md:w-[48%] h-[210px]">
       <Image
         src={product.image}
-        width={50}
-        height={50}
+        width={180}
+        height={210}
         alt="Miniature of the product"
+        className="w-[180] h-[210] rounded-[20px]"
       />
-      <div>
-        <div>
-          <h2>{product.name}</h2>
-          <span>$ {Number(product.price).toFixed(2)}</span>
+      <div className="w-full flex-col text-center md:text-left md:flex-row flex justify-between items-center gap-3">
+        <div className="flex flex-col gap-6">
+          <h2 className="text-title4">{product.name}</h2>
+          <span className="text-small-price">$ {Number(product.price).toFixed(2)}</span>
         </div>
-        <div>
+        <div className="flex gap-4">
           <button onClick={() => handleEditClick(product.id)}>
-            <BsPen />
+            <BsPen size={36}/>
           </button>
 
           <button onClick={() =>
@@ -45,7 +46,7 @@ export const AdminProductCard = ({ product }: IAdminProductCardProps) => {
                 token: token!
               }
             )}>
-            <TfiTrash />
+            <TfiTrash size={36}/>
           </button>
 
         </div>

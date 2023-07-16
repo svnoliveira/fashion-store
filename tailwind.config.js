@@ -20,6 +20,7 @@ module.exports = {
       black: '#000000',
       white: '#FFFFFF',
       grey: '#EEEEEE',
+      red: '#F87171',
     },
     fontSize: {
       'title1': ['6.25rem', {

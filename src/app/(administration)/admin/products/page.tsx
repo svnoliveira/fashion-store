@@ -10,9 +10,9 @@ export default function AdminProducts() {
 
   const user = useUserStore((store) => store.userData?.user)
   const adminModalOpen = useProductStore((store) => store.adminModalOpen);
-  
+
   useEffect(() => {
-    
+
     const startAdminProducts = async () => {
       const loadUser = useUserStore.getState().loadUser;
       const loadProducts = useProductStore.getState().loadProducts;
@@ -23,10 +23,12 @@ export default function AdminProducts() {
   }, [])
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <AdminNav />
-      { user && <AdminProductList />}
+    <>
+      <main className="flex flex-col min-h-[65vh] max-w-[1448px] m-auto px-3">
+        <AdminNav />
+        {user && <AdminProductList />}
+      </main>
       {adminModalOpen && <AdminModal />}
-    </main>
+    </>
   )
 }
