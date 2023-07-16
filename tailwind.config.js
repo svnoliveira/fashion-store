@@ -42,6 +42,10 @@ module.exports = {
         lineHeight: '3rem',
         fontWeight: '500',
       }],
+      'title3.5': ['1.5rem', {
+        lineHeight: '1.75rem',
+        fontWeight: '700',
+      }],
       'title4': ['1.188rem', {
         lineHeight: '1.375rem',
         fontWeight: '700',
