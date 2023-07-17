@@ -21,9 +21,9 @@ Fashion store website listing products for clients and admin pages for managemen
 # considerations
 
 * When adding products, only image urls hosted on these websites are allowed:
-* [Google drive](https://catbox.moe/drive.google.com)
-* [Cloudinary](https://catbox.moe/cloudinary.com)
-* [Catbox](https://catbox.moe/catbox.moe)
+* [Google drive](https://drive.google.com)
+* [Cloudinary](https://cloudinary.com)
+* [Catbox](https://catbox.moe/)
 
 * website uses a "fake" API and it is not always active
   if a function isn't working, try reloading the page, you can also check this link, if the page returns {}, it means the API is "awoken".
