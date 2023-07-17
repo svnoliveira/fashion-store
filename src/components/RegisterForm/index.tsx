@@ -28,7 +28,7 @@ export const RegisterForm = () => {
 
     <form className="flex flex-col justify-between w-full max-w-[568px]"
     onSubmit={handleSubmit((formData) => parseRegisterData(formData))}>
-      <Link href={"/"}>
+      <Link href={"/login"}>
         <button className="flex gap-2 items-center" type="button">
           <IoMdArrowBack />
           <span className="text-paragraph tracking-widest hover:underline decoration-solid decoration-black decoration-2">BACK</span>
