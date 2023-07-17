@@ -6,10 +6,13 @@ Fashion store website listing products for clients and admin pages for managemen
 
 # features
 
+## [Shop Page](fashion-store-nine-ebon.vercel.app/)
 * Shopping cart
   Users can browse and add or remove items from the shopping cart.
 * Server side Product List
   Products are listed from the server, allowing them to be indexable and found by search engines.
+  
+## [Admin Login Page](fashion-store-nine-ebon.vercel.app/login)
 * Login and register Admin functions
   Admins can register and login to manage the products list.
 * Admin Management
