@@ -28,7 +28,7 @@ export const AdminNav = () => {
     <section className="mt-11">
       {user &&
       <nav className="flex flex-col gap-10 sm:flex-row-reverse items-center sm:justify-between">
-         <button onClick={() => handleLogout}
+         <button onClick={() => handleLogout()}
          className="flex min-w-[210px] justify-center bg-black text-white items-center w-fit px-4 py-3 hover:opacity-50 text-small-price tracking-[0.2rem] border-2 border-solid border-black"
          >LOGOUT</button>
         <div className="flex gap-9">
