@@ -6,6 +6,7 @@ import { IoMdArrowBack } from "react-icons/io"
 import { TRegisterValues, registerSchema } from "./schema"
 import { useUserStore } from "@/stores/useUserStore"
 import { useRouter } from "next/navigation"
+import { Loading } from "../Fragments/Loading"
 
 export const RegisterForm = () => {
 
@@ -35,7 +36,7 @@ export const RegisterForm = () => {
       </Link>
       <h1 className="text-title2-m md:text-title2">REGISTER</h1>
       <span className="text-paragraph text-center lg:text-left pb-2 pt-6">Welcome, Administrator!</span>
-      {loading ? <span>LOADING</span>
+      {loading ? <Loading />
         : <div className="flex flex-col gap-3">
           <div className="relative">
             <input className="bg-grey h-20 p-6 text-paragraph w-full"

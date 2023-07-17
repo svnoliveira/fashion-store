@@ -5,6 +5,7 @@ import { TAdminFormValues, adminFormSchema } from "./schema";
 import { useUserStore } from "@/stores/useUserStore";
 import { useProductStore } from "@/stores/useProductStore";
 import { removeSpaces } from "@/services/utilities";
+import { Loading } from "../Fragments/Loading";
 
 export const AdminForm = () => {
   const {
@@ -50,7 +51,7 @@ export const AdminForm = () => {
 
   return (
     <>
-      {loading ? <span>LOADING</span> :
+      {loading ? <Loading /> :
         <form onSubmit={handleSubmit(parseFormData)} 
         className="flex flex-col justify-between w-full h-full pt-6">
           <input className="bg-grey h-20 p-6 text-paragraph w-full"

@@ -5,6 +5,7 @@ import { TLoginValues, loginSchema } from "./schema";
 import { useUserStore } from "@/stores/useUserStore";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Loading } from "../Fragments/Loading";
 
 export const LoginForm = () => {
 
@@ -27,7 +28,7 @@ export const LoginForm = () => {
     <form onSubmit={handleSubmit((formData) => parseLoginData(formData))}
     className="h-96 flex flex-col justify-between w-full max-w-[568px]">
       <h1 className="text-title2-m md:text-title2">LOGIN</h1>
-      {loading ? <span>LOADING</span>
+      {loading ? <Loading />
         : <>
           <input className="bg-grey h-20 p-6 text-paragraph"
           type="email" placeholder="E-MAIL" {...register("email")} />
