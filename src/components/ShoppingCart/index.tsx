@@ -18,7 +18,7 @@ export const ShoppingCart = () => {
         onClick={() => setShoppingModalOpen(false)}>
           <div className="relative max-w-[1728px] m-auto"
           onClick={(event) => handlePropagation(event)}>
-            <div className="flex flex-col justify-between absolute top-9 md:top-0 m-auto right-[4%] md:right-0 w-11/12 md:w-[512px] h-[80vh] px-3 md:px-10 py-8 bg-white shadow-cart">
+            <div className="flex flex-col justify-between absolute top-9 md:top-[70px] m-auto right-[4%] md:right-0 w-11/12 md:w-[512px] h-[80vh] px-3 md:px-10 py-8 bg-white shadow-cart">
               <div>
                 <div className="flex justify-between">
                   <h1 className="text-title3">SHOPPING CART</h1>
