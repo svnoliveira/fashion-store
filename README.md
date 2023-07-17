@@ -1,34 +1,43 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## [Fashion Store](fashion-store-nine-ebon.vercel.app/)
 
-First, run the development server:
+Fashion store website listing products for clients and admin pages for management.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## [Shop Page](fashion-store-nine-ebon.vercel.app/)
+* Shopping cart
+  Users can browse and add or remove items from the shopping cart.
+* Server side Product List
+  Products are listed from the server, allowing them to be indexable and found by search engines.
+  
+## [Admin Login Page](fashion-store-nine-ebon.vercel.app/login)
+* Login and register Admin functions
+  Admins can register and login to manage the products list.
+* Admin Management
+  logged administrators can add edit or remove items from the shop.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# considerations
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* When adding products, only image urls hosted on these websites are allowed:
+* [Google drive](https://drive.google.com)
+* [Cloudinary](https://cloudinary.com)
+* [Catbox](https://catbox.moe/)
 
-## Learn More
+* website uses a "fake" API and it is not always active
+  if a function isn't working, try reloading the page, you can also check this link, if the page returns {}, it means the API is "awoken".
+  [Awake the API!](https://fashion-store-api-svnoliveira.onrender.com/)
+  it's recomended to awake the API before browsing for the best experience!
 
-To learn more about Next.js, take a look at the following resources:
+* Database is periodicaly reset
+  The "fake" API is hosted on a free server, and it periodically resets all data, if that happens, you may have to register an account again to access Admin functions. Also, products will reset to the base 4 when the API resets the data
+  
+* Admin registration is publicly open for testing purposes
+  it's possible to find deleted items or edited products.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Products added from the Admin page may take a while to appear in the shop
+  Being a server side function, the main page list will only be updated when the server makes a revalidation, it's setup to every 60 seconds but sometimes it can take a little longer.
+  the list will be instantly accurate in the admin/products page.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
