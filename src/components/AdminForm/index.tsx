@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { TAdminFormValues, adminFormSchema } from "./schema";
 import { useUserStore } from "@/stores/useUserStore";
 import { useProductStore } from "@/stores/useProductStore";
-import { removeSpaces } from "@/services/utilities";
 import { Loading } from "../Fragments/Loading";
 
 export const AdminForm = () => {
@@ -21,11 +20,7 @@ export const AdminForm = () => {
   const currentProduct = products.find((product) => product.id === editingProduct);
 
   const parseFormData = async (formData: TAdminFormValues) => {
-    if (products.find((product) => 
-    removeSpaces(product.name) === removeSpaces(formData.name))) {
-      alert("Item name already in the store!")
-      return
-    } else if (currentProduct) {
+    if (currentProduct) {
       await editProduct({
         product: {
           name: formData.name,
