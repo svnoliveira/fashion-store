@@ -25,8 +25,8 @@ export interface IUserState {
     error: string;
     message: string;
     userData: null | IUserData;
+    loadUser: () => void;
     logoutUser: () => void;
     loginUser: ({ email, password }:ILoginData) => Promise<true | undefined>;
-    loadUser: () => void;
     registerUser: ({ email, password, name }: IRegisterData) => Promise<true | undefined>;
 }

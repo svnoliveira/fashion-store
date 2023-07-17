@@ -8,7 +8,7 @@ export const useUserStore = create<IUserState>()((set) => ({
   error: "",
   message: "",
   userData: null,
-  
+
   logoutUser: () => {
     localStorage.removeItem("@FS: userData");
     set({ userData: null });
@@ -22,41 +22,43 @@ export const useUserStore = create<IUserState>()((set) => ({
         password: password,
       });
       localStorage.setItem("@FS: userData", JSON.stringify(data));
-      set({ userData: data});
-      set({ message: "Logged in successfuly!"});
+      set({ userData: data });
+      set({ message: "Logged in successfuly!" });
       return true
     } catch (error) {
       console.log(error);
       set({ error: "Login atempt Failed" });
     } finally {
       set({ loading: false });
-      setTimeout(()=> { set({ message: "", error: "" })},2000)
+      setTimeout(() => { set({ message: "", error: "" }) }, 2000);
     };
   },
 
   loadUser: () => {
-    const savedUser = localStorage.getItem("@FS: userData");
-    if (savedUser) {
-      set({ userData: JSON.parse(savedUser) });
+    if (typeof window !== "undefined") {
+      const savedUser = localStorage.getItem("@FS: userData");
+      if (savedUser) {
+        set({ userData: JSON.parse(savedUser) });
+      }
     }
   },
 
   registerUser: async ({ email, password, name }) => {
     try {
-      set({ loading: true});
+      set({ loading: true });
       await api.post("/users", {
         email: email,
         password: password,
         name: name,
       });
-      set({ message: "Account registered!"});
+      set({ message: "Account registered!" });
       return true;
     } catch (error) {
       console.log(error);
-      set({ error: "Failed to register new account"});
+      set({ error: "Failed to register new account" });
     } finally {
-      set({loading: false});
-      setTimeout(()=> { set({ message: "", error: "" })},2000)
+      set({ loading: false });
+      setTimeout(() => { set({ message: "", error: "" }) }, 2000);
     };
   }
 }));

@@ -5,6 +5,7 @@ import { TAdminFormValues, adminFormSchema } from "./schema";
 import { useUserStore } from "@/stores/useUserStore";
 import { useProductStore } from "@/stores/useProductStore";
 import { removeSpaces } from "@/services/utilities";
+import { Loading } from "../Fragments/Loading";
 
 export const AdminForm = () => {
   const {
@@ -50,26 +51,36 @@ export const AdminForm = () => {
 
   return (
     <>
-      {loading ? <span>LOADING</span> :
+      {loading ? <Loading /> :
         <form onSubmit={handleSubmit(parseFormData)} 
         className="flex flex-col justify-between w-full h-full pt-6">
+
           <input className="bg-grey h-20 p-6 text-paragraph w-full"
-          type="text" placeholder={currentProduct ? currentProduct.name : "NAME"} {...register("name")} />
+          type="text" placeholder={currentProduct ? currentProduct.name : "NAME"} 
+          {...register("name")} />
           {errors.name && <p className="text-red">{errors.name.message}</p>}
+
           <input className="bg-grey h-20 p-6 text-paragraph w-full"
-          type="number" placeholder={currentProduct ? `$ ${Number(currentProduct.price.toFixed(2))}` : "PRICE ($)"} {...register("price")} />
+          type="number" placeholder={currentProduct ? `$ ${Number(currentProduct.price.toFixed(2))}` : "PRICE ($)"} 
+          {...register("price")} />
           {errors.price && <p className="text-red">{errors.price.message}</p>}
+
           <input className="bg-grey h-20 p-6 text-paragraph w-full"
-          type="text" placeholder={currentProduct ? currentProduct.image : "IMAGE (URL)"} {...register("image")} />
+          type="text" placeholder={currentProduct ? currentProduct.image : "IMAGE (URL)"} 
+          {...register("image")} />
           {errors.image && <p className="text-red">{errors.image.message}</p>}
+
           <textarea className="bg-grey h-28 p-6 text-paragraph w-full"
-          id="product__description" cols={30} rows={10} placeholder={currentProduct ? currentProduct.description : "SHORT DESCRIPTION"} {...register("description")}></textarea>
+          id="product__description" cols={30} rows={10} placeholder={currentProduct ? currentProduct.description : "SHORT DESCRIPTION"} 
+          {...register("description")}></textarea>
           {errors.description && <p className="text-red">{errors.description.message}</p>}
+
           <button className="flex gap-3 bg-black text-white justify-center items-center w-full lg:w-fit px-4 py-3 hover:opacity-50 text-small-price tracking-[0.2rem] border-2 border-solid border-black"
           type="submit" >
             {currentProduct ? <BsPen size={30}/> : <BsPlusCircle size={30}/>}
             {currentProduct ? "EDIT PRODUCT" : "NEW PRODUCT"}
           </button>
+          
         </form>}
     </>
   )

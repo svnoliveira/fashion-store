@@ -5,22 +5,25 @@ import { AdminNav } from "@/components/AdminNav";
 import { useEffect } from "react";
 import { useUserStore } from "@/stores/useUserStore";
 import { useProductStore } from "@/stores/useProductStore";
+import { useRouter } from "next/navigation";
+
+const loadUser = useUserStore.getState().loadUser;
+const loadProducts = useProductStore.getState().loadProducts;
+loadUser();
+loadProducts();
 
 export default function AdminProducts() {
 
   const user = useUserStore((store) => store.userData?.user)
+  const router = useRouter();
   const adminModalOpen = useProductStore((store) => store.adminModalOpen);
 
   useEffect(() => {
-
-    const startAdminProducts = async () => {
-      const loadUser = useUserStore.getState().loadUser;
-      const loadProducts = useProductStore.getState().loadProducts;
-      loadUser()
-      await loadProducts()
+    if (!user && window) {
+      router.push('/login');
     }
-    startAdminProducts()
-  }, [])
+    
+  }, [user])
 
   return (
     <>

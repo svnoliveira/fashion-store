@@ -1,18 +1,25 @@
 "use client"
-import { AdminNav } from "@/components/AdminNav";
-import { useUserStore } from "@/stores/useUserStore";
-import { useEffect } from "react";
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { AdminNav } from '@/components/AdminNav'
+import { useUserStore } from '@/stores/useUserStore'
 
-export default function AdminHome() {
+const loadUser = useUserStore.getState().loadUser;
+loadUser();
 
-  
+export default function Page() {
+
+  const userData = useUserStore((store) => store.userData);
+  const router = useRouter();
+ 
   useEffect(() => {
-    const loadUser = useUserStore.getState().loadUser;
-    loadUser()
-  }, [])
-
+    if (!userData && window) {
+      router.push('/login');
+    }
+  }, [userData]);
+ 
   return (
-    <main className="flex flex-col min-h-[65vh] justify-between max-w-[1448px] m-auto px-3">
+    <main className="flex flex-col min-h-[69vh] justify-between max-w-[1448px] m-auto px-3">
       <AdminNav />
     </main>
   )

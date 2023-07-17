@@ -20,7 +20,7 @@ export interface IRemoveFromCartProps{
 export interface IShoppingState{
     shoppingModalOpen: boolean;
     shoppingList: IShoppingProduct[];
-    setShoppingModalOpen: (boolean: boolean) => void
-    addToCart: ({ product }: IAddToCartProps) => void
-    removeFromCart: ({ productId }: IRemoveFromCartProps) => void
+    setShoppingModalOpen: (boolean: boolean) => void;
+    addToCart: ({ product }: IAddToCartProps) => void;
+    removeFromCart: ({ productId }: IRemoveFromCartProps) => void;
 }

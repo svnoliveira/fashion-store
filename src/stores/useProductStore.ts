@@ -26,7 +26,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       return null;
     } finally {
       set({loading: false});
-      setTimeout(()=> { set({ message: "", error: "" })},2000)
+      setTimeout(()=> { set({ message: "", error: "" })},2000);
     };
   },
 
@@ -39,7 +39,7 @@ export const useProductStore = create<IProductState>()((set) => ({
         }
       });
       set((state) => ({products: [...state.products, data]}));
-      set({message: "Product added to the store!"})
+      set({message: "Product added to the store!"});
       return data;
     } catch (error) {
       console.log(error);
@@ -47,7 +47,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       return null;
     } finally {
       set({loading: false});
-      setTimeout(()=> { set({ message: "", error: "" })},2000)
+      setTimeout(()=> { set({ message: "", error: "" })},2000);
     };
   },
 
@@ -72,8 +72,8 @@ export const useProductStore = create<IProductState>()((set) => ({
           return oldProduct;
         };
       })}));
-      set({editingProduct: 0})
-      set({message: "Product edited!"})
+      set({editingProduct: 0});
+      set({message: "Product edited!"});
       return data;
     } catch (error) {
       console.log(error);
@@ -81,7 +81,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       return null;
     } finally {
       set({loading: false});
-      setTimeout(()=> { set({ message: "", error: "" })},2000)
+      setTimeout(()=> { set({ message: "", error: "" })},2000);
     };
   },
 
@@ -96,7 +96,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       set((state) => 
       ({products: state.products.filter(oldProduct => 
       oldProduct.id !== productId)}));
-      set({message: "Product Deleted!"})
+      set({message: "Product Deleted!"});
       return true;
     } catch (error) {
       console.log(error);
@@ -104,7 +104,7 @@ export const useProductStore = create<IProductState>()((set) => ({
       return null;
     } finally {
       set({loading: false});
-      setTimeout(()=> { set({ message: "", error: "" })},2000)
+      setTimeout(()=> { set({ message: "", error: "" })},2000);
     };
   }
 }));
