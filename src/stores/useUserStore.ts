@@ -30,7 +30,7 @@ export const useUserStore = create<IUserState>()((set) => ({
       set({ error: "Login atempt Failed" });
     } finally {
       set({ loading: false });
-      setTimeout(() => { set({ message: "", error: "" }) }, 2000)
+      setTimeout(() => { set({ message: "", error: "" }) }, 2000);
     };
   },
 
@@ -58,7 +58,7 @@ export const useUserStore = create<IUserState>()((set) => ({
       set({ error: "Failed to register new account" });
     } finally {
       set({ loading: false });
-      setTimeout(() => { set({ message: "", error: "" }) }, 2000)
+      setTimeout(() => { set({ message: "", error: "" }) }, 2000);
     };
   }
 }));

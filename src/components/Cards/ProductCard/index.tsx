@@ -27,7 +27,8 @@ export const ProductCard = ({ product }: IProductCardProps) => {
           <AddtoShoppingCartButton product={product}>
             <MdOutlineAddShoppingCart size={36}/>
           </AddtoShoppingCartButton>
-          <Link href={`/product/${removeSpaces(product.name)}`} className="flex justify-center">
+          <Link className="flex justify-center" 
+          href={`/product/${removeSpaces(product.name)}`}>
             <span className="text-paragraph tracking-widest hover:underline decoration-solid decoration-black decoration-2">learn more</span>
           </Link>
         </div>
